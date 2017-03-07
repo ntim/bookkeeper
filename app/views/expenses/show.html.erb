@@ -1,0 +1,17 @@
+<p>
+  <strong>Description:</strong>
+  <%= @expense.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency @expense.price, unit: '€' %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= link_to @expense.person.name, person_path(@expense.person) %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

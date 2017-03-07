@@ -1,0 +1,32 @@
+<%= form_for(person) do |f| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= f.label :name, class: 'col-2 col-form-label' %>
+    <div class="col-10"><%= f.text_field :name, class: 'form-control', required: true %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :password, class: 'col-2 col-form-label' %>
+    <div class="col-10"><%= f.password_field :password, class: 'form-control' %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :password_confirmation, class: 'col-2 col-form-label' %>
+    <div class="col-10"><%= f.password_field :password_confirmation, class: 'form-control' %></div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-10 offset-2"><%= f.submit nil, class: 'btn btn-primary' %></div>
+  </div>
+<% end %>
